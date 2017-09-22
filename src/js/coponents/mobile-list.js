@@ -29,22 +29,24 @@ export default class MoblieList extends Component{
     render(){
         const {news}=this.state;
         const newList=news.length?news.map((newsItem,index)=>(
-          <section key={index} className="m_article list-item special_section clearfix">
-              <div className="m_article_img">
-                 <img  src={newsItem.thumbnail_pic_s} alt={newsItem.title}/>
-              </div>
-              <div className="m_article_info">
-                  <div className="m_article_title">
-                      <span>{newsItem.title}</span>
-                  </div>
-                  <div className="m_article_desc clearfix">
-                      <div className="m_article_desc_l">
-                          <span className="m_article_channel">{newsItem.realtype}</span>
-                          <span className="m_article_time">{newsItem.data}</span>
-                      </div>
-                  </div>
-              </div>
-          </section>
+            <section key={index} className="m_article list-item special_section clearfix">
+                <Link to={`details/${newsItem.uniquekey}`} target='_blank'>
+                    <div className="m_article_img">
+                        <img src={newsItem.thumbnail_pic_s} alt={newsItem.title}/>
+                    </div>
+                    <div className="m_article_info">
+                        <div className="m_article_title">
+                            <span>{newsItem.title}</span>
+                        </div>
+                        <div className="m_article_desc clearfix">
+                            <div className="m_article_desc_l">
+                                <span className="m_article_channel">{newsItem.realtype}</span>
+                                <span className="m_article_time">{newsItem.data}</span>
+                            </div>
+                        </div>
+                    </div>
+                </Link>
+            </section>
         )):"没有加载任何新闻";
         return(
             <div>

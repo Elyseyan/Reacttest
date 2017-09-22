@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import {Row,Col} from 'antd';
 import logo from '../../img/headerLogo.png';
 import { Menu, Icon,Tabs,message,Form,Input,Button,Checkbox,Modal } from 'antd';
-import {Route,Link,BrowserRouter as Router} from 'react-router-dom';
+import {Router, Route, Link, browserHistory} from 'react-router';
 const FormItem=Form.Item;
 const TabPane=Tabs.TabPane;
 const SubMenu = Menu.SubMenu;
@@ -68,9 +68,9 @@ class MobileHeader extends Component{
     render(){
         let {getFieldDecorator} = this.props.form;
         const userShow = this.state.hasLogined ?
-            // {/*<Link to="">*/}
+            <Link to="">
                 <Icon type="inbox"/>
-            // </Link>
+            </Link>
             :
             <Icon type="setting" onClick={this.login.bind(this)}/>;
         return(

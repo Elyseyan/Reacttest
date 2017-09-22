@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import {Row,Col} from 'antd';
 import logo from '../../img/headerLogo.png';
 import { Menu, Icon,Tabs,message,Form,Input,Button,Checkbox,Modal } from 'antd';
-import {Route,Link,BrowserRouter as Router} from 'react-router-dom';
+import {Router, Route, Link, browserHistory} from 'react-router';
 const FormItem=Form.Item;
 const TabPane=Tabs.TabPane;
 const SubMenu = Menu.SubMenu;
@@ -84,9 +84,9 @@ class PCHeader extends Component{
             <Menu.Item key="logout" className="register">
                 <Button type="primary" htmlType="button">{this.state.userNickName}</Button>
                 &nbsp;&nbsp;
-                {/*<Link target="_blank">*/}
-                <Button type="dashed" htmlType="button">个人中心</Button>
-                {/*</Link>*/}
+                <Link target="_blank">
+                    <Button type="dashed" htmlType="button">个人中心</Button>
+                </Link>
                 &nbsp;&nbsp;
                 <Button type="ghost" htmlType="button" onClick={this.logout.bind(this)}>退出</Button>
             </Menu.Item>
